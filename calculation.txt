@@ -1,0 +1,29 @@
+***The following is an approximate calculation***
+
+Number of machine cycles required to execute commands:
+SETB 	-> 1
+MOV 	-> 1
+MOVC 	-> 2
+DJNZ 	-> 2
+CLR 	-> 1
+NOP 	-> 1
+ACALL 	-> 2
+RET 	-> 1
+
+Number of machine cycles in DELAY function
+= (2*9+1+2)*226+1+1+1+1+1+1+1
+= 4753 
+
+Number of machine cycles in lines 46-51
+= (1+2+1+1+2+4753+1)
+= 4761
+Similar code is repeated 6 times throughout the REPEAT section.
+
+Number of machine cycles in the REPEAT section
+= (4761*6+2+2)*35+2
+= 999952
+
+For the microprocessor used, a machine cycle lasts for 12 clock cycles. 
+Its crystal frequency is 12MHz. Therefore, total delay
+= 999952*12/(12*10^6) sec
+= 0.999952 sec
